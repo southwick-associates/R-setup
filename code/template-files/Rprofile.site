@@ -3,8 +3,8 @@
 local({
     
 # Version-specific Parameters
-mran_repo <- 'https://cran.microsoft.com/snapshot/2017-12-18'
-r_version <- '3.4.3'
+mran_repo <- 'https://cran.microsoft.com/snapshot/2018-08-07'
+r_version <- '3.5.1'
 
 
 # Version-agnostic Setup Code ---------------------------------------------

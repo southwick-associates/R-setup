@@ -15,7 +15,7 @@ This outlines the steps needed to install the selected Southwick R version onto 
     + Double-click "R-Setup.Rproj" in the unzipped folder to launch RStudio
     + Run "1-make-site-files.R"
     + Restart Rstudio. You should now see a Southwick-specific message appear in the R console.
-    + Run "2-install-site-packages.R", which will likely take a few minute
+    + Run "2-install-site-packages.R", which will likely take a few minutes
     + Open "3-summarize-setup.Rmd" and Knit > Knit to HTML from Rstudio. Note: Select "Yes" if prompted to install additional packages.
     
 If the Rmd runs correctly, then you are done. You can take a look at the output html summary if you are interested in the details.

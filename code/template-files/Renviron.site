@@ -1,9 +1,4 @@
 
 # Southwick Environmental Variables
-R_LIBS_USER ='${R_USER}/R/win-library/3.4.3'
+R_LIBS_USER ='${R_USER}/R/win-library/3.5.1'
 CENSUS_API_KEY = '7ce74869fb8e921c9aacef808dc7c2180c1e1d73'
-
-# R memory limit (24gb)
-# This is intended for use on the Data Server, to prevent R from gobbling up all the memory
-# It seems to work for TinnR, but not RStudio for some reason
-R_MAX_MEM_SIZE = 24000M
