@@ -1,0 +1,38 @@
+# Define Southwick Setup
+
+local({
+    
+# Version-specific Parameters
+mran_repo <- 'https://cran.microsoft.com/snapshot/2017-12-18'
+r_version <- '3.4.3'
+
+
+# Version-agnostic Setup Code ---------------------------------------------
+
+# Set option - default repository: MRAN snapshot
+r <- getOption('repos') 
+r['CRAN'] <- mran_repo
+options(repos=r)
+
+# Set option - installation: binary
+# This should help insure version correspondence for machines without R-Tools installed
+options(pkgType = "binary")
+
+# Make a user library directory if it doesn't exist
+user_library_path <- file.path(Sys.getenv('R_USER'), 'R', 'win-library', r_version)
+if (!dir.exists(user_library_path)) {
+    dir.create(user_library_path, recursive = TRUE)
+    .libPaths(user_library_path) # ensures availability on first use
+}
+
+# Print Startup Message
+cat(paste0(
+    'Southwick R Setup\n-----------------\n',
+    'Additional packages are included in this installation (tidyverse, DT, saproj, salic).\n',
+    'A specific CRAN repo (', getOption('repos'), ') is used by default\n',
+    'for package installations (see \'https://mran.microsoft.com/timemachine\' for details).\n\n',
+    'Type \'vignette(\"saproj-intro\")\' for an introduction to Southwick R Projects.\n\n'
+))
+
+})     
+

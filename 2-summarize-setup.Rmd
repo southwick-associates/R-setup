@@ -1,0 +1,70 @@
+---
+title: "Summarize the R Configuration intended for Southwick Use"
+date: '`r strftime(Sys.time(), format = "%B %d, %Y")`'
+output: 
+    html_document:
+        toc: true
+        toc_float: true
+        code_folding: hide
+---
+
+```{r setup, message=FALSE}
+library(tidyverse)
+knitr::opts_chunk$set(comment = NA)
+```
+
+## Overview
+
+There are 3 basic customizations performed by the Southwick R Installation:
+
+- Creates an *Renviron.site* to specify a user library
+- Creates an *Rprofile.site* to specify a CRAN repo
+- Installs some commonly used packages (built by Southwick and otherwise)
+
+## Details
+
+If you want to dig into the details, take a look below.
+
+### Renviron.site
+
+See `?startup` for background about Renviron and Rprofile. The Renviron customization serves 2 purposes:
+
+- specifies a user library, protecting the System Library from accidental installations
+- defines other useful environmental variables (e.g., Census API key)
+
+```{r}
+file.path(R.home(component = "etc"), "Renviron.site") %>%
+    readLines()
+```
+
+### Rprofile.site
+
+The Rprofile customization serves 3 purposes:
+
+- sets the default CRAN repo, to ensure package installs come from the same MRAN snapshot
+- create a user library if it doesn't exist, to ensure System Library is protected from installs
+- prints a startup message, to inform the user of the Southwick-specific R installation
+
+```{r}
+file.path(R.home(component = "etc"), "Rprofile.site") %>%
+    readLines()
+```
+
+### Packages Installed to System Library
+
+Quite a few of these installed packages come from "02-install-site-library.R"
+
+```{r}
+r_install <- read.csv("pkg/installed-base-pkgs.csv")
+new_install <- installed.packages() %>%
+    data.frame() %>%
+    select(Package, Version) %>%
+    mutate(install_source = "Southwick-Install")
+install <- bind_rows(r_install, new_install)
+write.csv(install, file = "pkg/installed-pkgs.csv")
+DT::datatable(install)
+```
+
+```{r}
+sessionInfo()
+```
