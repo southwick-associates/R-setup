@@ -19,3 +19,5 @@ Instructions for preparing new R version on the Data Server.
 6. Source "2-summarize-setup.Rmd"
 
 7. Restart RStudio > You should see an updated startup message
+
+8. Use git to commit/push your changes and create a new release corresponding to the R version

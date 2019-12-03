@@ -4,14 +4,14 @@ Includes code to install R with a number of settings that work with [package sap
 
 ## Installation
 
-This outlines the steps needed to install the Southwick R version 3.4.3 onto a Windows machine. The process should take less than five minutes.
+This outlines the steps needed to install the selected Southwick R version onto a Windows machine. The process should take less than five minutes.
 
 1. Install R [corresponding to selected version](https://cran.r-project.org/bin/windows/base/old/). Note that you'll need to change the default folder to "C:/" instead of "C:/Program Files" to avoid write access issues in the steps below.
 
 2. [Install Rstudio](https://rstudio.com/products/rstudio/download/) (free version) if not already installed on your machine.
 
 3. Run Southwick-specific Setup:
-    + From this repository, click "Clone or download" > Download Zip and then unzip the downloaded file on your machine.
+    + From this github repository, click on "release", select the number corresponding to the R version, click on the zip file, and then unzip the downloaded file on your machine.
     + Double-click "R-Setup.Rproj" in the unzipped folder to launch RStudio
     + Run "1-make-site-files.R"
     + Restart Rstudio. You should now see a Southwick-specific message appear in the R console.
