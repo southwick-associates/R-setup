@@ -4,7 +4,7 @@ Includes code to install R with a number of settings that work with [package sap
 
 ## Deprecated
 
-As of Feb 2020, I consider this approach deprecated. I recommend [package renv](https://rstudio.github.io/renv/index.html). Use `saproj::to_renv()` from saproj version 2.2, which may need to be installed from the R console:
+As of Feb 2020, I consider this approach deprecated. I recommend [package renv](https://rstudio.github.io/renv/index.html). To migrate code from an existing project use `saproj::to_renv()` from saproj version 2.2, which may need to be installed from the R console:
 
 ```r
 install.packages("remotes")
