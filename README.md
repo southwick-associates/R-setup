@@ -2,6 +2,15 @@
 
 Includes code to install R with a number of settings that work with [package saproj](https://github.com/southwick-associates/saproj) to enable better reproducibility over time and across machines.
 
+## Deprecated
+
+As of Feb 2020, I consider this approach deprecated. I recommend [package renv](https://rstudio.github.io/renv/index.html). Use `saproj::to_renv()` from saproj version 2.2, which may need to be installed from the R console:
+
+```r
+install.packages("remotes")
+remotes::install_github("southwick-associates/saproj")
+```
+
 ## Installation
 
 This outlines the steps needed to install the selected Southwick R version onto a Windows machine. The process should take less than five minutes.
